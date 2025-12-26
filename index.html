@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Constructor - Build Your Perfect Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">🍕 Pizza Constructor</h1>
+            <p class="header__subtitle">Build your perfect pizza</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="pizza-builder">
+                <!-- Pizza Display Section -->
+                <section class="pizza-section">
+                    <div class="pizza-container">
+                        <div class="pizza-base" id="pizzaBase">
+                            <div class="pizza-crust"></div>
+                            <div class="pizza-sauce"></div>
+                            <div class="pizza-ingredients" id="pizzaIngredients"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="pizza-info">
+                        <div class="price-display">
+                            <span class="price-label">Total Price:</span>
+                            <span class="price-value" id="totalPrice">$12.99</span>
+                        </div>
+                        <button class="clear-btn" id="clearPizza">Clear Pizza</button>
+                    </div>
+                </section>
+
+                <!-- Controls Section -->
+                <section class="controls-section">
+                    <!-- Extra Options -->
+                    <div class="options-panel">
+                        <h3 class="panel-title">Extra Options</h3>
+                        <div class="options-grid">
+                            <div class="option-item" data-option="double-cheese" data-price="2.50">
+                                <span class="option-emoji">🧀</span>
+                                <span class="option-name">Double Cheese</span>
+                                <span class="option-price">+$2.50</span>
+                            </div>
+                            <div class="option-item" data-option="extra-cheese" data-price="1.99">
+                                <span class="option-emoji">🧀</span>
+                                <span class="option-name">Extra Cheese</span>
+                                <span class="option-price">+$1.99</span>
+                            </div>
+                            <div class="option-item" data-option="black-crust" data-price="1.50">
+                                <span class="option-emoji">⚫</span>
+                                <span class="option-name">Black Crust</span>
+                                <span class="option-price">+$1.50</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ingredient Categories -->
+                    <div class="categories-panel">
+                        <h3 class="panel-title">Ingredients</h3>
+                        
+                        <div class="category-tabs">
+                            <button class="category-tab active" data-category="vegetables">
+                                <span class="tab-emoji">🥕</span>
+                                <span>Vegetables</span>
+                            </button>
+                            <button class="category-tab" data-category="meat">
+                                <span class="tab-emoji">🥓</span>
+                                <span>Meat</span>
+                            </button>
+                            <button class="category-tab" data-category="cheese">
+                                <span class="tab-emoji">🧀</span>
+                                <span>Cheese</span>
+                            </button>
+                        </div>
+
+                        <div class="ingredients-container">
+                            <!-- Vegetables -->
+                            <div class="ingredients-grid active" data-category="vegetables">
+                                <div class="ingredient-item" data-ingredient="tomato" data-price="0.99">
+                                    <div class="ingredient-visual tomato"></div>
+                                    <span class="ingredient-name">Tomato</span>
+                                    <span class="ingredient-price">$0.99</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="mushroom" data-price="1.49">
+                                    <div class="ingredient-visual mushroom"></div>
+                                    <span class="ingredient-name">Mushroom</span>
+                                    <span class="ingredient-price">$1.49</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="bell-pepper" data-price="1.29">
+                                    <div class="ingredient-visual bell-pepper"></div>
+                                    <span class="ingredient-name">Bell Pepper</span>
+                                    <span class="ingredient-price">$1.29</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="onion" data-price="0.79">
+                                    <div class="ingredient-visual onion"></div>
+                                    <span class="ingredient-name">Onion</span>
+                                    <span class="ingredient-price">$0.79</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="olive" data-price="1.99">
+                                    <div class="ingredient-visual olive"></div>
+                                    <span class="ingredient-name">Olive</span>
+                                    <span class="ingredient-price">$1.99</span>
+                                </div>
+                            </div>
+
+                            <!-- Meat -->
+                            <div class="ingredients-grid" data-category="meat">
+                                <div class="ingredient-item" data-ingredient="pepperoni" data-price="2.99">
+                                    <div class="ingredient-visual pepperoni"></div>
+                                    <span class="ingredient-name">Pepperoni</span>
+                                    <span class="ingredient-price">$2.99</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="sausage" data-price="3.49">
+                                    <div class="ingredient-visual sausage"></div>
+                                    <span class="ingredient-name">Sausage</span>
+                                    <span class="ingredient-price">$3.49</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="bacon" data-price="3.99">
+                                    <div class="ingredient-visual bacon"></div>
+                                    <span class="ingredient-name">Bacon</span>
+                                    <span class="ingredient-price">$3.99</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="ham" data-price="2.79">
+                                    <div class="ingredient-visual ham"></div>
+                                    <span class="ingredient-name">Ham</span>
+                                    <span class="ingredient-price">$2.79</span>
+                                </div>
+                            </div>
+
+                            <!-- Cheese -->
+                            <div class="ingredients-grid" data-category="cheese">
+                                <div class="ingredient-item" data-ingredient="mozzarella" data-price="1.99">
+                                    <div class="ingredient-visual mozzarella"></div>
+                                    <span class="ingredient-name">Mozzarella</span>
+                                    <span class="ingredient-price">$1.99</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="parmesan" data-price="2.49">
+                                    <div class="ingredient-visual parmesan"></div>
+                                    <span class="ingredient-name">Parmesan</span>
+                                    <span class="ingredient-price">$2.49</span>
+                                </div>
+                                <div class="ingredient-item" data-ingredient="goat-cheese" data-price="3.99">
+                                    <div class="ingredient-visual goat-cheese"></div>
+                                    <span class="ingredient-name">Goat Cheese</span>
+                                    <span class="ingredient-price">$3.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pizza Constructor. Crafted with ❤️ for pizza lovers.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
